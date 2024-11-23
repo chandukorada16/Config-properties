@@ -1,0 +1,40 @@
+server:
+  port: 3031
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/acruent
+    username: root
+    password: 9603
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: plans-api
+  boot:
+    admin:
+      client:
+        url: http://localhost:5055/  # Spring Boot Admin server URL
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+planapi:
+  messages:
+    PlanSavSucc: Plan Saved successfully
+    PlanNotSave: Plan Not Saved
+    PlanUpdateSucc: Plan Updated Successfully
+    PlanNotUpdate: Plan Not Updated
+    PlanDeleteSucc: Plan Deleted Successfully
+    PlanStatusChangeSucc: Plan Status Changed Successfully
+    PlanStatusChangeNotSucc: Plan Status Not Changed
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
